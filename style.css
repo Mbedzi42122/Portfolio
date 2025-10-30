@@ -1,204 +1,142 @@
-/* ====== GLOBAL STYLES ====== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
   }
   
   body {
-    background: #ffffff;
-    color: #000;
-    overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
+    background: url('img/BACKGROUND.png') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
   }
   
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  /* ====== NAVBAR ====== */
-  .navbar {
-    position: fixed;
-    top: 0;
+  /* HEADER */
+  header {
     width: 100%;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 1rem 5%;
+    padding: 20px 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 100;
+    background: transparent; /* same as body */
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   
-  .logo {
-    width: 120px;
+  .logo img {
+    height: 70px; /* increased logo size */
   }
   
-  .nav-links {
+  nav ul {
+    list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 50px;
   }
   
-  .nav-links a {
+  nav ul li a {
     text-decoration: none;
     color: #000;
     font-weight: 600;
-    font-size: 1rem;
-    transition: color 0.3s;
+    transition: 0.3s;
   }
   
-  .nav-links a:hover,
-  .nav-links a.active {
-    color: #e23838;
+  nav ul li a.active {
+    color: #e44b4b;
   }
   
-  /* ====== HERO SECTION ====== */
+  nav ul li a:hover {
+    color: #e44b4b;
+  }
+  
+  /* HERO SECTION */
   .hero {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 8rem 5% 4rem;
-    background: url("img/BACKGROUND.png") center/cover no-repeat;
-    min-height: 100vh;
+    height: 100vh;
+    padding: 0 80px;
   }
   
-  .hero-content {
-    flex: 1 1 500px;
-    max-width: 550px;
+  .content {
+    max-width: 50%;
   }
   
-  .hero-content h1 {
-    font-size: 2.5rem;
+  h1 {
+    font-size: 48px;
     font-weight: 700;
-    margin-bottom: 1rem;
+    color: #222;
   }
   
-  .highlight {
-    color: #e54545;
+  h1 span {
+    color: #e44b4b;
   }
   
-  .description {
-    font-size: 1.1rem;
-    font-weight: 300;
+  p {
+    font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 2rem;
+    color: #333;
+    margin: 20px 0;
   }
   
-  /* ====== BUTTON ====== */
-  .btn {
+  .resume-btn {
     display: inline-block;
-    background: #e54545;
+    background: #e44b4b;
     color: #fff;
+    padding: 12px 28px;
+    border-radius: 25px;
     font-weight: 600;
-    padding: 0.8rem 1.8rem;
-    border-radius: 30px;
     text-decoration: none;
-    transition: background 0.3s;
+    transition: 0.3s;
   }
   
-  .btn:hover {
-    background: #c93535;
+  .resume-btn:hover {
+    background: #d13d3d;
   }
   
-  /* ====== SOCIAL ICONS ====== */
   .socials {
+    margin-top: 20px;
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: 20px;
   }
   
   .socials img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s;
+    width: 32px;
+    height: 32px;
+    transition: 0.3s;
   }
   
   .socials img:hover {
     transform: scale(1.1);
   }
   
-  /* ====== HERO IMAGE ====== */
-  .hero-image {
-    flex: 1 1 350px;
-    display: flex;
-    justify-content: center;
+  .image img {
+    height: 420px;
+    border-radius: 5px;
   }
   
-  .hero-image img {
-    width: 300px;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* ====== SCROLL DOWN ====== */
-  .scroll-down {
-    display: flex;
-    justify-content: center;
-    padding: 2rem 0;
-  }
-  
-  .scroll-down img {
-    width: 40px;
-    animation: bounce 2s infinite;
-  }
-  
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(8px);
-    }
-  }
-  
-  /* ====== RESPONSIVE DESIGN ====== */
-  @media (max-width: 992px) {
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
     .hero {
       flex-direction: column;
+      justify-content: center;
       text-align: center;
     }
   
-    .hero-content {
-      max-width: 100%;
+    .content {
+      max-width: 90%;
     }
   
-    .hero-image {
-      margin-top: 2rem;
+    .image {
+      margin-top: 30px;
     }
   
-    .nav-links {
-      gap: 1rem;
-    }
-  
-    .hero-content h1 {
-      font-size: 2rem;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .btn {
-      padding: 0.7rem 1.5rem;
-      font-size: 0.9rem;
-    }
-  
-    .nav-links {
-      display: none;
-    }
-  
-    .logo {
-      width: 90px;
-    }
-  
-    .hero-content h1 {
-      font-size: 1.8rem;
-    }
-  
-    .hero-image img {
-      width: 250px;
+    header {
+      padding: 20px 40px;
     }
   }
   
