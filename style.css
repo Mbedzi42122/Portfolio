@@ -4,165 +4,241 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-  }
-  
-  body {
-    background-color: #18191D;   /* dark background */
+}
+
+body {
+    background-color: #18191D;
     color: #ffffff;
-  }
-  
-  /* -------- Header -------- */
-  header {
+    overflow-x: hidden;
+}
+
+/* -------- Header -------- */
+header {
     width: 100%;
     padding: 25px 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .logo p {
+}
+
+.logo p {
     font-size: 36px;
-    font-weight: 600;
-    color: #ffffff;
-  }
-  
-  nav ul {
+    font-weight: 700;
+}
+
+nav ul {
     display: flex;
     list-style: none;
     gap: 40px;
-  }
-  
-  nav ul li a {
+}
+
+nav ul li a {
     text-decoration: none;
     color: #ffffff;
     font-size: 20px;
     letter-spacing: 1px;
     transition: 0.3s;
-  }
-  
-  nav ul li a.active,
-  nav ul li a:hover {
-    color: #F88787; /* soft pink highlight */
-  }
-  
-  /* -------- Home Section -------- */
-  .Home {
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: #F88787;
+}
+
+/* -------- Home Section -------- */
+.Home {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 80px;
-    gap: 20px;
+    gap: 40px;
     flex-wrap: wrap;
-
     position: relative;
-    top: -50px;
-    
-  }
-  
-  .Home .content {
-    max-width: 520px;
-  }
-  
-  .Home h1 {
+    top: -40px;
+}
+
+.Home .content {
+    max-width: 550px;
+}
+
+.Home h1 {
     font-size: 50px;
     font-weight: 700;
     margin-bottom: 15px;
-  }
-  
-  .Home h1 span {
-    color: #F88787; /* Pink accent */
-  }
-  
-  .Home p {
+}
+
+.Home h1 span {
+    color: #F88787;
+}
+
+.Home p {
     font-size: 17px;
     line-height: 1.6;
     margin-bottom: 25px;
     color: #d1d1d1;
-  }
-  
-  .resume-btn {
+}
+
+.resume-btn {
     display: inline-block;
     background: #F88787;
     color: white;
     padding: 12px 28px;
     border-radius: 25px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     transition: 0.3s;
-  }
-  
-  .resume-btn:hover {
+}
+
+.resume-btn:hover {
     opacity: 0.8;
-  }
-  
-  /* -------- Social Icons -------- */
-  .socials {
+}
+
+/* -------- Social Icons -------- */
+.socials {
     margin-top: 30px;
     display: flex;
     gap: 20px;
-  }
-  
-  .socials a {
-    font-size: 28px;     /* icon size */
-    color: white;        /* default white */
+}
+
+.socials a {
+    font-size: 28px;
+    color: white;
     transition: 0.3s;
-  }
-  
-  .socials a:hover {
-    color: #d37a7a;      /* pink on hover */
+}
+
+.socials a:hover {
+    color: #d37a7a;
     transform: scale(1.15);
-  }
-  
-  
-  /* -------- Profile Image -------- */
-  .image {
+}
+
+/* -------- Profile Image -------- */
+.image {
     position: relative;
-    right: 40px;     /* move image to the right */
-    top: 0px;       /* move image upward */
-  }
-  .image img {
-    width: 320px;
+    right: 40px;
+}
+
+.image img {
+    width: 330px;
     height: auto;
     border-radius: 4px;
-  }
-  
-  /* -------- Responsive -------- */
-  @media (max-width: 900px) {
-    header {
-      padding: 20px 40px;
-    }
-  
+}
+
+/* ========================================= */
+/* ==========  RESPONSIVENESS  ============= */
+/* ========================================= */
+/* -------- Fix for screens 1082px – 910px -------- */
+@media (max-width: 1100px) {
     .Home {
-      flex-direction: column-reverse;
-      text-align: left;
-      padding: 50px;
+        padding: 60px;
+        gap: 20px;
     }
+
+    .Home .content {
+        max-width: 480px;   /* reduce text width sooner */
+        flex: 1;
+    }
+
+    .Home h1 {
+        font-size: 44px;   /* slightly smaller */
+    }
+
+    .Home p {
+        font-size: 16px;
+    }
+
+    .image img {
+        width: 300px;      /* image reduced earlier */
+    }
+}
+
+
+/* -------- Laptops (1024px and below) -------- */
+@media (max-width: 1024px) {
+    header {
+        padding: 20px 50px;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+    }
+
+    .Home {
+        padding: 60px;
+        gap: 30px;
+    }
+
+    .image img {
+        width: 300px;
+    }
+}
+
+/* -------- Tablets (900px and below) -------- */
+@media (max-width: 900px) {
+    .Home {
+        flex-direction: column-reverse;
+        text-align: left;
+        padding: 50px;
+        top: 0;
+    }
+
     .image {
         right: 0;
-        top: 0;
-      }
-  
+    }
+
     .image img {
-      width: 260px;
+        width: 260px;
     }
-  
-    .Home .content {
-      text-align: left;
+
+    .Home h1 {
+        font-size: 40px;
     }
-  }
-  
-  @media (max-width: 600px) {
+
+    .Home p {
+        font-size: 15px;
+    }
+
     nav ul {
-      gap: 20px;
+        gap: 25px;
     }
-  
-    .hero h1 {
-      font-size: 34px;
+}
+
+/* -------- Phones (600px and below) -------- */
+@media (max-width: 600px) {
+    header {
+        padding: 20px 30px;
     }
-  
-    .hero p {
-      font-size: 13px;
+
+    .logo p {
+        font-size: 30px;
     }
-  }
-  
+
+    nav ul {
+        gap: 15px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .Home {
+        padding: 40px 25px;
+    }
+
+    .Home h1 {
+        font-size: 32px;
+    }
+
+    .Home p {
+        font-size: 14px;
+    }
+
+    .image img {
+        width: 220px;
+    }
+
+    .resume-btn {
+        font-size: 14px;
+        padding: 10px 24px;
+    }
+}
