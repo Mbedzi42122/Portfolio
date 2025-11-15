@@ -401,6 +401,87 @@ nav ul {
     background: #d06c6c;
   }
 
+
+  /* ===== CONTACT SECTION ===== */
+.contact {
+    padding: 80px 60px;
+    background: #18191D;
+    color: white;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+.contact-subtext {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: #cccccc;
+  }
+
+.contact-title {
+    font-size: 44px;
+    font-weight: 800;
+    color: #515256;
+    margin-bottom: 40px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.contact-box {
+    background: #212227;
+    width: 250px;
+    padding: 35px 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.contact-box i {
+    font-size: 30px;
+    color: #F88787;
+    margin-bottom: 15px;
+}
+
+.contact-box h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.contact-box p {
+    font-size: 16px;
+    color: #d1d1d1;
+}
+
+.contact-box:hover {
+    transform: translateY(-6px);
+    background: #2a2b30;
+}
+
+/* Social icons under contact */
+.contact-socials {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.contact-socials a {
+    font-size: 34px;
+    color: white;
+    transition: 0.3s;
+}
+
+.contact-socials a:hover {
+    color: #F88787;
+    transform: scale(1.15);
+}
 /* ========================================= */
 /* ==========  RESPONSIVENESS  ============= */
 /* ========================================= */
@@ -676,5 +757,17 @@ nav ul {
         text-align: center;
         margin-left: 0;
         font-size: 35px;
+    }
+    .contact {
+        padding: 60px 25px;
+    }
+
+    .contact-title {
+        font-size: 35px;
+    }
+
+    .contact-box {
+        width: 100%;
+        max-width: 300px;
     }
 }
