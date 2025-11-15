@@ -182,6 +182,122 @@ nav ul {
     line-height: 1.6;
 }
 
+/* ===== SKILLS SECTION ===== */
+.skills {
+    padding: 60px 40px;
+    background: #18191D; /* slightly different dark panel */
+    color: #dcdcdc;
+    border-top: 1px solid rgba(255,255,255,0.03);
+  }
+  
+  .skills-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .skills-heading {
+    text-align: center;
+    font-size: 44px;
+    letter-spacing: 2px;
+    color: #8b8b8b; /* heading grey like image */
+    margin-bottom: 30px;
+    font-weight: 800;
+  }
+  
+  /* Grid: two columns */
+  .skills-grid {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  /* Each column */
+  .skills-column {
+    flex: 1 1 420px;
+    min-width: 300px;
+  }
+  
+  /* Column title */
+  .col-title {
+    color: #e6e6e6;
+    font-size: 30px;
+    margin-bottom: 18px;
+    margin-left: 100px;
+    font-weight: 700;
+  }
+  
+  /* Skill row */
+  .skill-row {
+    display: grid;
+    grid-template-columns: 1fr 230px 60px;
+    align-items: center;
+    gap: 18px;
+    margin: 12px 0 18px;
+  }
+  
+  /* Label on left */
+  .skill-label {
+    font-size: 17px;
+    color: #cfcfcf;
+    padding-right: 10px;
+  }
+  
+  /* Percentage number at right */
+  .skill-percent {
+    font-size: 17px;
+    color: #bfbfbf;
+    text-align: right;
+    white-space: nowrap;
+  }
+  
+  /* Progress bar container */
+  .skill-bar {
+    position: relative;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.144);
+    border-radius: 4px;
+    overflow: visible;
+  }
+  
+  /* Filled portion */
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg,#df9999,#e96666);
+    border-radius: 4px;
+    transition: width 1s ease;
+  }
+  
+  /* Small circular knob indicator */
+  .skill-knob {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(59,142,246,0.12);
+    border: 2px solid rgba(0,0,0,0.15);
+    transition: left 1s ease;
+  }
+  
+  /* Paragraph text below spans full width */
+  .skills-text {
+    margin-top: 28px;
+    color: #cfcfcf;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  
+  /* Make the descriptive paragraph a bit narrower and centered like the screenshot */
+  .skills-text p {
+    max-width: 1000px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+
 /* ========================================= */
 /* ==========  RESPONSIVENESS  ============= */
 /* ========================================= */
@@ -303,6 +419,17 @@ nav ul {
     nav ul {
         gap: 25px;
     }
+
+    .skill-row {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+      .skill-percent {
+        text-align: left;
+      }
+      .skills-grid {
+        gap: 30px;
+      }
 }
 
 
