@@ -628,12 +628,23 @@ nav ul li a:hover {
     font-size: 12px;
 }
 
-/* Screenshots show in full, no cropping */
-.project-media img {
+/* Screenshots and videos show in full, no cropping */
+.project-media img,
+.project-media video {
     display: block;
     width: 100%;
     height: auto;
+    background: var(--bg-card);   /* shows behind the video while it loads */
     border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+}
+
+/* Only needed if you embed a YouTube video instead of an MP4 */
+.project-media iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
     border-radius: 10px;
 }
 
@@ -980,7 +991,7 @@ nav ul li a:hover {
         font-size: 46px;
     }
 
-    /* Projects: image above text on every row */
+    /* Projects: image/video above text on every row */
     .project-row,
     .project-row:nth-of-type(even) {
         grid-template-columns: 1fr;

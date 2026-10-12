@@ -6,6 +6,8 @@
    4. Reveal-on-scroll
    5. Count-up stats
    6. Typing greeting in the hero ("Hello.")
+   7. Project demo videos (play only while visible)
+   8. Contact form (Formspree, no page reload)
    ========================================================= */
 (() => {
   'use strict';
@@ -168,7 +170,7 @@
     if (!textNode || textNode.nodeType !== Node.TEXT_NODE) return;
 
     const end = parseInt(textNode.nodeValue, 10);
-    if (Number.isNaN(end) || !hasObserver || reduceMotion) return;   // e.g. "BSc" stays as is
+    if (Number.isNaN(end) || !hasObserver || reduceMotion) return;   // e.g. "Hons" stays as is
 
     textNode.nodeValue = '0';
 
@@ -236,5 +238,74 @@
         await sleep(2400);
       }
     })();
+  }
+
+  /* ---------- 7. Project demo videos ---------- */
+  // Videos play only while on screen, which saves data and battery.
+  const demoVideos = [...document.querySelectorAll('.project-media video')];
+
+  if (demoVideos.length) {
+    if (reduceMotion || !hasObserver) {
+      // No autoplay: pause the video and let the visitor press play
+      demoVideos.forEach((v) => {
+        v.pause();
+        v.removeAttribute('autoplay');
+        v.setAttribute('controls', '');
+      });
+    } else {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            const playing = video.play();
+            // some browsers reject play(); ignore it quietly
+            if (playing && typeof playing.catch === 'function') playing.catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.4 });
+
+      demoVideos.forEach((v) => videoObserver.observe(v));
+    }
+  }
+
+  /* ---------- 8. Contact form (Formspree) ---------- */
+  const form = document.getElementById('contact-form');
+  const statusMsg = document.getElementById('form-status');
+  const submitBtn = document.querySelector('.contact-submit');
+
+  if (form && statusMsg) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // reminder if you forgot to paste your Formspree ID
+      if (form.action.includes('YOUR_FORM_ID')) {
+        statusMsg.textContent = 'The form is not connected yet. Please email me directly.';
+        return;
+      }
+
+      statusMsg.textContent = 'Sending...';
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+
+        if (res.ok) {
+          statusMsg.textContent = 'Thanks! Your message has been sent.';
+          form.reset();
+        } else {
+          statusMsg.textContent = 'Something went wrong. Please try again or email me directly.';
+        }
+      } catch (err) {
+        statusMsg.textContent = 'Network error. Please try again or email me directly.';
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
   }
 })();

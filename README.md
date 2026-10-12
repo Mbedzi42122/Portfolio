@@ -1,133 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Akonaho Mbedzi | Portfolio Website</title>
-</head>
+# Akonaho Mbedzi | Portfolio Website
 
-<body>
+A responsive personal portfolio website built to showcase my work as a software developer and Computer Science graduate. The site presents my technical skills, featured projects, education background, contact information, and downloadable CV in a modern single-page layout.
 
-  <h1>Akonaho Mbedzi – Personal Portfolio Website</h1>
+## Live demo
 
-  <p>
-    This repository contains the source code for my <strong>personal portfolio website</strong>,
-    built to showcase my skills, projects, education, and contact information as a
-    <strong>Computer Science student</strong>.
-  </p>
+https://mbedzi42122.github.io/Portfolio/
 
-  <p>
-    🔗 <strong>Live Website:</strong>
-    <a href="https://mbedzi42122.github.io/Portfolio/" target="_blank">
-      View Portfolio
-    </a>
-  </p>
+## Overview
 
-  <hr>
+This portfolio includes:
 
-  <h2>About the Project</h2>
-  <p>
-    The portfolio is designed to present my professional profile in a clean,
-    responsive, and user-friendly manner. It highlights my technical abilities,
-    personal projects, and career interests in software development.
-  </p>
+- A hero section with introduction and call-to-action buttons
+- An about section highlighting my background and interests
+- A technology stack grid with languages and tools used
+- A project showcase featuring multiple web and software projects
+- A contact form connected to Formspree
+- Social links, WhatsApp, email, and CV download
+- Mobile-friendly responsive design with smooth scrolling and animations
 
-  <hr>
+## Featured projects
 
-  <h2>Features</h2>
-  <ul>
-    <li>Responsive design for desktop and mobile devices</li>
-    <li>Interactive navigation menu</li>
-    <li>Skills section with animated progress indicators</li>
-    <li>Projects showcase with technologies used</li>
-    <li>Downloadable resume (PDF)</li>
-    <li>Contact section with social media links</li>
-  </ul>
+- Pop a Prize — interactive prize draw landing page built with HTML, CSS, and JavaScript
+- Product Inventory Manager — Java-based command-line inventory application
+- De Legacies Salon Management System — PHP/MySQL salon management system with queue and booking features
 
-  <hr>
+## Tech stack
 
-  <h2>Technologies Used</h2>
-  <ul>
-    <li>HTML5</li>
-    <li>CSS3</li>
-    <li>JavaScript</li>
-    <li>Font Awesome Icons</li>
-    <li>Git & GitHub</li>
-    <li>GitHub Pages (Deployment)</li>
-  </ul>
+- HTML5
+- CSS3
+- JavaScript
+- PHP
+- MySQL
+- Python
+- Java
+- C++
+- Git & GitHub
+- Font Awesome
+- Google Fonts
+- Devicon
 
-  <hr>
+## Project structure
 
-  <h2>📂 Project Structure</h2>
-  <pre>
-portfolio-website/
-│─ index.html
-│── README.md
-│── style.css
-│── menu.js
-│── scroll.js
-│── skills.js
-│── img/
-│   └── profile.png
-│── my_resume.pdf
-  </pre>
+```text
+Portfolio/
+├── index.html
+├── README.md
+├── Akonaho_Mbedzi CV.pdf
+├── favicon.ico
+├── css/
+│   └── style.css
+├── Js/
+│   └── main.js
+├── img/
+│   ├── hero.jpeg
+│   ├── hero.png
+│   ├── profile.png
+│   ├── portfolio.png
+│   ├── project2.png
+│   ├── Project1.png
+│   ├── project3.png
+│   └── ...
+├── vid/
+│   ├── project1.mp4
+│   ├── project3.mp4
+│   └── ...
+└── .github/ (if present in your repo)
+```
 
-  <hr>
+## Run locally
 
-  <h2>How to Run Locally</h2>
-  <ol>
-    <li>Clone the repository:</li>
-    <pre>
+```bash
 git clone https://github.com/Mbedzi42122/Portfolio.git
-    </pre>
-    <li>Navigate to the project folder</li>
-    <li>Open <code>index.html</code> in your browser</li>
-  </ol>
+cd Portfolio
+python -m http.server 8000
+```
 
-  <hr>
+Then open:
 
-  <h2>What I Learned</h2>
-  <ul>
-    <li>Building responsive layouts using HTML and CSS</li>
-    <li>JavaScript DOM manipulation for interactive UI</li>
-    <li>Structuring front-end projects professionally</li>
-    <li>Version control using Git and GitHub</li>
-    <li>Deploying websites with GitHub Pages</li>
-  </ul>
+```text
+http://localhost:8000
+```
 
-  <hr>
+You can also open `index.html` directly in a browser, but using a local web server is recommended for a smoother experience.
 
-  <h2>Resume</h2>
-  <p>
-    My resume is available for download here:
-    <a href="my_resume.pdf" target="_blank">View Resume</a>
-  </p>
+## Contact
 
-  <hr>
+- Email: akonahombedzi4@gmail.com
+- Phone: +27 73 024 3864
+- GitHub: https://github.com/Mbedzi42122
+- LinkedIn: https://www.linkedin.com/in/akonaho-mbedzi-66292a29b/
 
-  <h2>Author</h2>
-  <p>
-    <strong>Akonaho Mbedzi</strong><br>
-    Computer Science Student – University of Venda<br>
-    Thohoyandou, Limpopo, South Africa
-  </p>
+## About me
 
-  <p>
-    🔗 GitHub:
-    <a href="https://github.com/Mbedzi42122" target="_blank">
-      github.com/Mbedzi42122
-    </a>
-    <br>
-    🔗 LinkedIn:
-    <a href="https://www.linkedin.com/in/akonaho-mbedzi-66292a29b/" target="_blank">
-      linkedin.com/in/akonaho-mbedzi
-    </a>
-  </p>
+I am a Computer Science graduate with a strong interest in software development, problem solving, and emerging technologies. I am currently completing my Honours studies and am open to internships, junior developer roles, and collaborations.
 
-  <hr>
+## License
 
-  <p>
-    If you find this project useful or inspiring, feel free to star the repository!
-  </p>
-
-</body>
-</html>
+This project is for personal portfolio use and is not currently published under a formal open-source license.

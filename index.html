@@ -10,6 +10,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
 
+ <!-- Title and search description -->
+  <title>Akonaho Mbedzi | Software Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Akonaho Mbedzi, a Computer Science graduate and software developer skilled in HTML, CSS, JavaScript, PHP, SQL, Python and Java. Open to internships and junior developer roles.">
+  <meta name="author" content="Akonaho Mbedzi">
+  <meta name="keywords" content="Akonaho Mbedzi, software developer, web developer, portfolio, PHP, JavaScript, South Africa">
+
+  <!-- Browser colour (mobile address bar) -->
+  <meta name="theme-color" content="#18191D">
+
+ <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+
 </head>
 
 <body>
@@ -216,62 +229,68 @@
       </div>
     </div>
     <div class="project-media">
-      <img src="img/Project1.png" alt="Screenshot of my portfolio website">
-    </div>
+  <video
+    src="vid/project1.mp4"
+    poster="img/Project1.png"
+    autoplay muted loop playsinline
+    aria-label="Demo of the Pop a Prize website">
+  </video>
+</div>
   </article>
 
   <!-- PROJECT 2 -->
   <article class="project-row">
     <div class="project-text">
-      <h3>Monate Chicken &amp; Steak Ordering System</h3>
+      <h3>Product Inventory Manager</h3>
       <ul class="tags">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>PHP</li>
-        <li>SQL</li>
+        <li>JAVA</li>
       </ul>
       <p>
-        An online food ordering system that allows customers to place orders,
-        manage menus, and process requests efficiently.
+       A Java command-line application for managing a product inventory. Users can capture, search, update and delete products through a text-based menu, and print a report with the total product count, total inventory value and average product value.
       </p>
       <div class="project-buttons">
-        <a href="https://github.com/Phathu-Lidzhade/monate-website.git" class="btn btn-fill" target="_blank">View code</a>
-        <!-- TODO: replace # with the live link -->
-        <a href="#" class="btn-link" target="_blank">View project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <a href="https://github.com/Mbedzi42122/product-inventory-manager" class="btn btn-fill" target="_blank">View code</a>
+
+        <!-- TODO: replace # with the live link 
+        <a href="#" class="btn-link" target="_blank">View project <i class="fa-solid fa-arrow-up-right-from-square"></i></a> -->
       </div>
     </div>
     <div class="project-media">
-      <img src="img/monate.png" alt="Screenshot of the Monate Chicken &amp; Steak ordering system">
+      <img src="img/project2.png" alt="Screenshot of the Product Inventory Manager application">
     </div>
   </article>
 
   <!-- PROJECT 3 -->
   <article class="project-row">
     <div class="project-text">
-      <h3>Crown &amp; Glow Hair Salon</h3>
+      <h3>De Legacies Salon Management System</h3>
       <ul class="tags">
         <li>HTML</li>
         <li>CSS</li>
         <li>JavaScript</li>
         <li>PHP</li>
-        <li>SQL</li>
+        <li>MySQL</li>
+        <li>Google Maps API</li>
       </ul>
       <p>
-        An online salon management system. Customers can register, log in and
-        book appointments, while administrators get a dedicated panel to manage
-        customers and appointments.
+       A web-based salon management system that combines a digital walk-in queue with optional appointment booking. Customers can join the queue, book services with their preferred staff and cancel bookings, while staff and managers get role-based dashboards for schedules, services, payments and daily analytics.
       </p>
       <div class="project-buttons">
-        <!-- TODO: add the repo link:
-        <a href="YOUR-REPO-URL" class="btn btn-fill" target="_blank">View code</a> -->
-        <!-- TODO: replace # with the live link -->
-        <a href="#" class="btn-link" target="_blank">View project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        
+        <a href="https://github.com/Mbedzi42122/De-legacy-salon-management-system" class="btn btn-fill" target="_blank">View code</a> 
+
+        <!-- TODO: replace # with the live link 
+        <a href="#" class="btn-link" target="_blank">View project <i class="fa-solid fa-arrow-up-right-from-square"></i></a> -->
       </div>
     </div>
     <div class="project-media">
-      <img src="img/project3.jpeg" alt="Screenshot of the Crown &amp; Glow Hair Salon web application">
-    </div>
+  <video
+    src="vid/project3.mp4"
+    poster="img/project3.png"
+    autoplay muted loop playsinline
+    aria-label="Demo of the De Legacies Salon Management System">
+  </video>
+</div>
   </article>
 
 </section>
@@ -299,8 +318,8 @@
       </ul>
     </div>
 
-    <!-- TODO: replace YOUR_FORM_ID with your Formspree form id (see notes) -->
-    <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    
+    <form id="contact-form" class="contact-form" action="https://formspree.io/f/mnpjzyvb" method="POST">
       <div class="field">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required autocomplete="name">
@@ -316,7 +335,7 @@
         <textarea id="message" name="message" rows="3" required></textarea>
       </div>
 
-      <!-- spam trap: real people never see or fill this -->
+      
       <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
     </form>
 
