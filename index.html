@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Akonaho Mbedzi | Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/chatbot.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -357,7 +358,52 @@
   </div>
 </footer>
 
+<!-- CHATBOT -->
+<div class="chatbot" id="chatbot">
+
+  <!-- Chat window (opens above the bot) -->
+  <section class="chat-window" id="chat-window" role="dialog" aria-label="Chat with Akonaho's assistant" aria-hidden="true">
+    <div class="chat-header">
+      <div class="chat-avatar">
+        <div class="bot"><div class="bot-face"><span class="bot-eye"></span><span class="bot-eye"></span></div></div>
+      </div>
+      <div class="chat-title">
+        <strong>Akonaho's Assistant</strong>
+        <span>Online</span>
+      </div>
+      <button type="button" class="chat-close" id="chat-close" aria-label="Close chat">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+
+    <div class="chat-suggestions" id="chat-suggestions">
+      <button type="button">What are his skills?</button>
+      <button type="button">Tell me about his projects</button>
+      <button type="button">How can I contact him?</button>
+    </div>
+
+    <form class="chat-form" id="chat-form" autocomplete="off">
+      <input type="text" id="chat-input" placeholder="Type your question..." aria-label="Type your question" maxlength="300">
+      <button type="submit" class="chat-send" id="chat-send" aria-label="Send message">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+  </section>
+
+  <!-- Bot button with the "Ask me" message above it -->
+  <div class="chat-launcher">
+    <span class="chat-bubble" id="chat-bubble">Ask me!</span>
+    <button type="button" class="chat-toggle" id="chat-toggle" aria-label="Open chat" aria-expanded="false" aria-controls="chat-window">
+      <div class="bot"><div class="bot-face"><span class="bot-eye"></span><span class="bot-eye"></span></div></div>
+    </button>
+  </div>
+
+</div>
+
 <script src="Js/main.js" defer></script>
+<script src="Js/chatbot.js" defer></script>
 
 </body>
 </html>
