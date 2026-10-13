@@ -1,12 +1,21 @@
 /* =========================================================
    chatbot.js: front-end behaviour for the portfolio chatbot
+   0. Settings
    1. Open / close the chat
    2. "Ask me" bubble
    3. Sending and showing messages
-   4. getBotReply(): temporary answers (replace with backend later)
+   4. getBotReply(): talks to the Worker backend
    ========================================================= */
 (() => {
   'use strict';
+
+  /* ---------- 0. Settings ---------- */
+  // Paste your Worker URL here after you deploy it, e.g.
+  // 'https://portfolio-chatbot.yourname.workers.dev'
+  const CHAT_API_URL = 'https://portfolio-chatbot.akonahombedzi4.workers.dev';
+
+  const MAX_HISTORY = 10;       // messages sent to the backend each time
+  const FALLBACK = "Sorry, I can't answer right now. You can email akonahombedzi4@gmail.com instead.";
 
   const root = document.getElementById('chatbot');
   if (!root) return;
@@ -23,6 +32,7 @@
 
   let greeted = false;
   let waiting = false;
+  const history = [];           // [{ role: 'user' | 'assistant', content: '...' }]
 
   /* ---------- 1. Open / close ---------- */
   const setOpen = (open) => {
@@ -60,7 +70,7 @@
   function addMessage(text, who) {
     const el = document.createElement('div');
     el.className = 'msg msg-' + who;
-    el.textContent = text;                       // textContent keeps user input safe
+    el.textContent = text;                       // textContent keeps the text safe
     messages.appendChild(el);
     scrollDown();
     return el;
@@ -89,17 +99,14 @@
     suggestions.style.display = 'none';          // hide the quick questions after first use
 
     addMessage(text, 'user');
+    history.push({ role: 'user', content: text });
     input.value = '';
 
     const typing = showTyping();
-    let reply;
-    try {
-      reply = await getBotReply(text);
-    } catch (err) {
-      reply = 'Sorry, something went wrong. Please try again.';
-    }
+    const reply = await getBotReply();
     typing.remove();
-    addMessage(reply, 'bot');
+    addMessage(reply.text, 'bot');
+    if (reply.ok) history.push({ role: 'assistant', content: reply.text });
 
     waiting = false;
     sendBtn.disabled = false;
@@ -116,42 +123,27 @@
     if (btn) send(btn.textContent);
   });
 
-  /* ---------- 4. Replies ---------- */
-  // TEMPORARY: simple keyword answers so the chat feels alive.
-  // When the backend is ready, replace the body of this function with:
-  //
-  //   const res = await fetch('/api/chat', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({ message })
-  //   });
-  //   const data = await res.json();
-  //   return data.reply;
-  async function getBotReply(message) {
-    await new Promise((resolve) => setTimeout(resolve, 900));   // fake thinking time
-
-    const m = message.toLowerCase();
-    const has = (...words) => words.some((w) => m.includes(w));
-
-    if (has('hello', 'hi ', 'hey', 'hi!') || m === 'hi') {
-      return 'Hello! What would you like to know about Akonaho?';
-    }
-    if (has('skill', 'tech', 'stack', 'language', 'know')) {
-      return 'Akonaho works with HTML, CSS, JavaScript, PHP, MySQL, Python, Java and C++, and uses Git and GitHub for version control.';
-    }
-    if (has('project', 'built', 'portfolio', 'work')) {
-      return 'Featured projects: Pop a Prize (an interactive prize draw site), a Java Product Inventory Manager, and the De Legacies Salon Management System (queue + booking, PHP and MySQL).';
-    }
-    if (has('study', 'education', 'degree', 'university', 'honours', 'hons')) {
-      return "He's a Computer Science graduate currently completing his Honours at the University of Limpopo.";
-    }
-    if (has('contact', 'email', 'phone', 'reach', 'hire', 'whatsapp')) {
-      return 'You can email akonahombedzi4@gmail.com, call +27 73 024 3864, or use the contact form at the bottom of this page.';
-    }
-    if (has('intern', 'job', 'available', 'opportunit', 'role')) {
-      return "Yes! Akonaho is open to internships, junior developer roles and collaborations.";
+  /* ---------- 4. Backend call ---------- */
+  // Sends the recent conversation to the Worker and returns { ok, text }
+  async function getBotReply() {
+    if (CHAT_API_URL.includes('PASTE_YOUR')) {
+      return { ok: false, text: 'The chatbot is not connected yet. Add the Worker URL in Js/chatbot.js.' };
     }
 
-    return "I'm still learning to answer that. Try asking about his skills, projects, education or how to contact him.";
+    try {
+      const res = await fetch(CHAT_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: history.slice(-MAX_HISTORY) })
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.reply) return { ok: true, text: data.reply };
+      if (res.status === 429) return { ok: false, text: 'You are sending messages too quickly. Please wait a minute and try again.' };
+      return { ok: false, text: data.error || FALLBACK };
+    } catch (err) {
+      return { ok: false, text: FALLBACK };
+    }
   }
 })();
